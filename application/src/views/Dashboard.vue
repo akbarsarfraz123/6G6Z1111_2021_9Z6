@@ -8,9 +8,7 @@
         <Search />
       </div>
       <div>
-        <img alt="Vue logo" src="../assets/logo.png" />
-        <p class="m-5">test</p>
-        <HelloWorld msg="Welcome to Your Vue.js App" />
+        <LineChart />
       </div>
     </div>
   </div>
@@ -21,17 +19,22 @@
 import Search from "@/components/Search.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import HelloWorld from "@/components/HelloWorld.vue";
+import LineChart from "@/components/LineChart.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
-    HelloWorld,
+    /*HelloWorld,*/
     Search,
     Sidebar,
+    LineChart,
   },
 });
 </script>
-
+components: {
+    Search,
+    Sidebar,
+  },
 
 <style lang="scss">
 .home {
