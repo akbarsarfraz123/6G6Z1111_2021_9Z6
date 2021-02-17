@@ -1,16 +1,20 @@
 <template>
   <div class="d-flex flex-row">
     <Sidebar />
-    <router-view class="w-100" />
+    <div class="w-100 d-flex flex-column">
+      <Search />
+      <router-view class="w-100" />
+    </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
 import Sidebar from "@/components/Sidebar.vue";
-
+import Search from "@/components/Search.vue";
 export default defineComponent({
   components: {
     Sidebar,
+    Search,
   },
 });
 </script>
