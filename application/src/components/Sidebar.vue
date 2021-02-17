@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav bg-dark d-flex flex-column shadow-right">
+  <nav class="sticky-top nav bg-dark d-flex flex-column shadow-right">
     <div>
       <h1 class="mt-3">1CWK100</h1>
     </div>
@@ -44,7 +44,7 @@ nav {
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
-
+  position: fixed;
   .nav-account {
     a {
       font-size: 20px;

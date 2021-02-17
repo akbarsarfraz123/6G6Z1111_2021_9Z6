@@ -1,8 +1,11 @@
 <template>
-  <p>Remove</p>
+  <div class="d-flex flex-row">
+    <p>Remove</p>
+  </div>
 </template>
 
-<script>
+<script lang="ts">
+import Sidebar from "@/components/Sidebar.vue";
 export default {};
 </script>
 

@@ -1,17 +1,12 @@
 <template>
-  <div class="d-flex flex-row">
-    <Sidebar />
-    <router-view class="w-100" />
-  </div>
+  <router-view />
 </template>
+
 <script lang="ts">
 import { defineComponent } from "vue";
-import Sidebar from "@/components/Sidebar.vue";
 
 export default defineComponent({
-  components: {
-    Sidebar,
-  },
+  components: {},
 });
 </script>
 

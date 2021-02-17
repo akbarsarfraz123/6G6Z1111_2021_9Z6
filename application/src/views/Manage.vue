@@ -1,8 +1,10 @@
 <template>
-  <p>Manage</p>
+  <div class="d-flex flex-row">
+    <p>Manage</p>
+  </div>
 </template>
-
-<script>
+<script lang="ts">
+import Sidebar from "@/components/Sidebar.vue";
 export default {};
 </script>
 
