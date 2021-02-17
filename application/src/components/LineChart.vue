@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Charts</h1>
     <apexchart
       type="line"
       height="350"
