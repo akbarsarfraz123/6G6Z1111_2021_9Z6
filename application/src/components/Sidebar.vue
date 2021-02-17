@@ -1,37 +1,39 @@
 <template>
-  <nav class="sticky-top nav bg-dark d-flex flex-column shadow-right">
-    <div>
-      <h1 class="mt-3">1CWK100</h1>
-    </div>
-    <div class="section-split"></div>
-    <div class="nav-account">
-      <div class="account d-flex justify-content-start">
-        <a class="ms-1 mb-2 h6" href="">LDixon</a>
-      </div>
-      <div class="account-extras d-flex">
-        <a class="me-auto ms-1" href="">account details</a>
-        <a class="me-1" href="">log out</a>
+  <div>
+    <nav class="nav bg-dark d-flex flex-column shadow-right">
+      <div>
+        <h1 class="mt-3">1CWK100</h1>
       </div>
       <div class="section-split"></div>
-    </div>
-    <div class="functionality d-flex flex-column">
-      <router-link :to="{ name: 'Dashboard' }"
-        ><font-awesome-icon icon="home" /> Home</router-link
-      >
-      <router-link :to="{ name: 'Add' }"
-        ><font-awesome-icon icon="plus" />Add</router-link
-      >
-      <router-link :to="{ name: 'Remove' }"
-        ><font-awesome-icon icon="minus" />Remove</router-link
-      >
-      <router-link :to="{ name: 'Documents' }"
-        ><font-awesome-icon icon="folder" />Documents</router-link
-      >
-      <router-link :to="{ name: 'About' }"
-        ><font-awesome-icon icon="info" />About</router-link
-      >
-    </div>
-  </nav>
+      <div class="nav-account">
+        <div class="account d-flex justify-content-start">
+          <a class="ms-1 mb-2 h6" href="">LDixon</a>
+        </div>
+        <div class="account-extras d-flex">
+          <a class="me-auto ms-1" href="">account details</a>
+          <a class="me-1" href="">log out</a>
+        </div>
+        <div class="section-split"></div>
+      </div>
+      <div class="functionality d-flex flex-column">
+        <router-link :to="{ name: 'Dashboard' }"
+          ><font-awesome-icon icon="home" /> Home</router-link
+        >
+        <router-link :to="{ name: 'Add' }"
+          ><font-awesome-icon icon="plus" />Add</router-link
+        >
+        <router-link :to="{ name: 'Remove' }"
+          ><font-awesome-icon icon="minus" />Remove</router-link
+        >
+        <router-link :to="{ name: 'Documents' }"
+          ><font-awesome-icon icon="folder" />Documents</router-link
+        >
+        <router-link :to="{ name: 'About' }"
+          ><font-awesome-icon icon="info" />About</router-link
+        >
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
