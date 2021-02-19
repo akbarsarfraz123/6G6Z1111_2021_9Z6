@@ -14,17 +14,18 @@
             Import
           </button>
         </li> -->
-      <form class="d-flex input-group w-50 mx-auto">
-        <div class="w-100 d-flex flex-row">
+      <form class="d-flex flex-col items-center input-group w-50 mx-auto">
+        <div class="w-100 d-flex flex-row p-0">
           <input
           type="search"
-          class="form-control p-0"
+          class="form-control z-10"
           id="search-bar"
           placeholder="Search"
           aria-label="Search"
           autocomplete="off"
           v-model="card"
           @input="filterCards"
+          @focus="update"
         />
         <button
           class="btn btn-success"
@@ -34,9 +35,9 @@
           <font-awesome-icon icon="search" />
         </button>
         </div>
-        <div class="w-100 d-flex flew-row p-0" v-if="filteredCards">
-          <div class="w-100">
-            <input type="text" class="list-group-item p-0" id="suggest" v-for="filteredCard in filteredCards" v-bind:key="filteredCard" :value="filteredCard" />
+        <div class="w-100" v-if="filteredCards && modal">
+          <div>
+            <input type="text" class="list-group-item py-2 cursor-pointer" id="suggest" v-for="filteredCard in filteredCards" v-bind:key="filteredCard" :value="filteredCard" @click="setCard(filteredCard)" />
           </div>
         </div>
         </form>
@@ -52,13 +53,18 @@ export default {
     return {
       card: '',
       cards: [
-        'Apple',
-        'Banana',
-        'Cantelope',
-        'Date',
-        'Elderberry'
+        'ABCDE',
+        'ABC',
+        'BCDE',
+        'BEDC',
+        'CDEF',
+        'CDEEF',
+        'DDDDD',
+        'DEFGH',
+        'E'
         ],
       filteredCards: [],
+      modal: false
     };
   },
   methods: {
@@ -73,19 +79,20 @@ export default {
     autocomplete() {
       alert();
     },
+    update() {
+      this.modal = true;
+      this.filteredCards = [];
+    },
     filterCards() {
       this.filteredCards = this.cards.filter(card => {
         return card.toLowerCase().startsWith(this.card.toLowerCase());
       })
-    }
-    // },
-    // computed: {
-    //   filteredCards: function() {
-    //     return this.cards.filter((card) => {
-    //       return card.title.match(this.search);
-    //     });
-    //   }
-  }
+    },
+    setCard(card) {
+      this.card = card;
+      this.modal = false;
+    },
+  },
 };
 </script>
 
