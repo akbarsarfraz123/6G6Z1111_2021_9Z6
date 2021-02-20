@@ -45,6 +45,9 @@ export default {
     getEmail: {
       get() {
         return this.$store.getters.getUserEmail;
+      },
+      set(value) {
+        this.getEmail = value;
       }
     }
   },
