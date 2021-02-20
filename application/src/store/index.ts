@@ -26,22 +26,18 @@ export default createStore({
   actions: {
     async login({ dispatch }, form) {
       // sign user in
-      const user = await fb.auth.signInWithEmailAndPassword(
-        form.email,
-        form.password
-      );
-      console.log("test " + user);
+      await fb.auth.signInWithEmailAndPassword(form.email, form.password);
       // fetch user profile and set in state
-      dispatch("fetchUserProfile", user);
+      console.log(form.email);
+      dispatch("fetchUserProfile", form.email);
     },
-    async fetchUserProfile({ commit }, user) {
+    async fetchUserProfile({ commit }, email) {
       // set user profile in state
       //commit("setUserProfile", userProfile.data());
-      commit("setUserProfile", user);
-      commit("setUserEmail", user.email);
+      //commit("setUserProfile", user);
+      commit("setUserEmail", email);
 
-      console.log(user.email);
-      console.log("test2" + user.email);
+      console.log("test2" + email);
       // change route to dashboard
       {
         router.push("/");
@@ -49,11 +45,11 @@ export default createStore({
     },
     async signup({ dispatch }, form) {
       const user = fb.auth.createUserWithEmailAndPassword(
-        form.name,
+        form.email,
         form.password
       );
       console.log("test " + user);
-      if (user) dispatch("fetchUserProfile", user);
+      if (user) dispatch("fetchUserProfile", form.email);
     },
     async logout({ commit }) {
       // log user out

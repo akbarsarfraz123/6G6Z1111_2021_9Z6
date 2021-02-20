@@ -7,15 +7,11 @@
       <div class="section-split"></div>
       <div class="nav-account">
         <div class="account d-flex justify-content-start">
-          <a class="ms-1 mb-2 h6" href="">LDixon</a>
+          <p class="ms-1 mb-2 h6">{{ getEmail }}</p>
         </div>
         <div class="account-extras d-flex">
           <a class="me-auto ms-1" href="">account details</a>
           <a class="me-1" @click="logout">log out</a>
-        </div>
-        <div class="section-split"></div>
-        <div class="account-extras d-flex">
-          <a class="me-1" @click="test">test</a>
         </div>
         <div class="section-split"></div>
       </div>
@@ -43,14 +39,21 @@
 <script>
 export default {
   setup() {
-    return;
+    return {};
+  },
+  computed: {
+    getEmail: {
+      get() {
+        return this.$store.getters.getUserEmail;
+      }
+    }
   },
   methods: {
     logout() {
       this.$store.dispatch("logout");
     },
     test() {
-      console.log(this.$store.getters.getUserEmail);
+      console.log(this.getEmail);
     }
   }
 };
@@ -63,6 +66,13 @@ nav {
   max-width: 250px;
   min-height: 100vh;
   position: fixed;
+  background: linear-gradient(
+    to right,
+    #a80a14c5 0%,
+    #a80a14c5 100%,
+    #fff 0%,
+    #fff 100%
+  );
   .nav-account {
     a {
       font-size: 20px;
