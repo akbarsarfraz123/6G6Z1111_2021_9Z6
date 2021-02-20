@@ -24,20 +24,6 @@ export default createStore({
       // fetch user profile and set in state
       dispatch('fetchUserProfile',user)
     },
-
-    async signup({ dispatch }, form) {
-      // sign user up
-      const user = await fb.auth.createUserWithEmailAndPassword(form.email, form.password)
-      
-      // create user object in userCollections
-      await fb.usersCollection.doc(user.uid).set({
-        name: form.name,
-        title: form.title
-      })
-
-      // fetch user profile and set in state
-      dispatch('fetchUserProfile', user)
-    },
     async fetchUserProfile({ commit }, user) {
       // fetch user profile
       const userProfile = await fb.usersCollection.doc(user.uid).get()
