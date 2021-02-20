@@ -5,12 +5,22 @@ import Dashboard from '../views/Dashboard.vue'
 import Documents from '../views/Documents.vue'
 import Manage from '../views/Manage.vue'
 import Remove from '../views/Remove.vue'
+import * as firebase from '../firebase'
+import {auth } from '../firebase'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Dashboard',
-    component: Dashboard
+    component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import( /* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
     path: '/about',
@@ -46,6 +56,16 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
+
+  if (requiresAuth && !firebase.auth.currentUser) {
+    next('/login')
+  } else {
+    next()
+  }
 })
 
 export default router

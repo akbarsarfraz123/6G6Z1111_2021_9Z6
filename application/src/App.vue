@@ -1,17 +1,26 @@
 <template>
-  <div>
-    <router-view />
+  <div id="app">
+    <SiteNav v-if="showNav"></SiteNav>
+    <router-view/>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script>
+import { mapState } from 'vuex'
+import SiteNav from '@/components/SiteNav'
 
-export default defineComponent({
-  components: {},
-});
+export default {
+  components: {
+    SiteNav
+  },
+  computed: {
+    ...mapState(['userProfile']),
+    showNav() {
+      return Object.keys(this.userProfile).length > 1
+    }
+  }
+}
 </script>
-
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -19,9 +28,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  h1 {
-    font-size: 2.5em;
-  }
 }
 
 #nav {
