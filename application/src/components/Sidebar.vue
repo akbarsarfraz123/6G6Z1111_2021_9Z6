@@ -11,7 +11,11 @@
         </div>
         <div class="account-extras d-flex">
           <a class="me-auto ms-1" href="">account details</a>
-          <a class="me-1" href="">log out</a>
+          <a class="me-1" @click="logout">log out</a>
+        </div>
+        <div class="section-split"></div>
+        <div class="account-extras d-flex">
+          <a class="me-1" @click="test">test</a>
         </div>
         <div class="section-split"></div>
       </div>
@@ -37,7 +41,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  setup() {
+    return;
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    },
+    test() {
+      console.log(this.$store.getters.getUserEmail);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

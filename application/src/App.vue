@@ -1,25 +1,18 @@
 <template>
   <div id="app">
-    <SiteNav v-if="showNav"></SiteNav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import SiteNav from '@/components/SiteNav'
+import { mapState } from "vuex";
 
 export default {
-  components: {
-    SiteNav
-  },
+  components: {},
   computed: {
-    ...mapState(['userProfile']),
-    showNav() {
-      return Object.keys(this.userProfile).length > 1
-    }
+    ...mapState(["userProfile"])
   }
-}
+};
 </script>
 <style lang="scss">
 #app {
