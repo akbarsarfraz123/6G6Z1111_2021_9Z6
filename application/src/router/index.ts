@@ -6,7 +6,6 @@ import Documents from '../views/Documents.vue'
 import Manage from '../views/Manage.vue'
 import Remove from '../views/Remove.vue'
 import * as firebase from '../firebase'
-import {auth } from '../firebase'
 
 const routes: Array<RouteRecordRaw> = [
   {

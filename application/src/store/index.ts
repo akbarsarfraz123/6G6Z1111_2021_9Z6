@@ -1,6 +1,8 @@
+
 import { createStore } from 'vuex'
 import * as fb from '../firebase'
 import router from '../router/index'
+
 
 
 export default createStore({
@@ -25,11 +27,7 @@ export default createStore({
 
     async signup({ dispatch }, form) {
       // sign user up
-      const {user} = await fb.auth.createUserWithEmailAndPassword(form.email, form.password).then{ await fb.usersCollection.doc(user.uid).set({
-        name: form.name,
-        title: form.title
-      })
-}
+      const user = await fb.auth.createUserWithEmailAndPassword(form.email, form.password)
       
       // create user object in userCollections
       await fb.usersCollection.doc(user.uid).set({
