@@ -37,7 +37,8 @@
         </div>
         <div class="w-100" v-if="filteredCards && modal">
           <div>
-            <input type="text" class="list-group-item py-2 cursor-pointer" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard" @click="setCard(filteredCard)" />
+            <div id="blanket" @click="killModal"></div>
+            <input type="text" class="list-group-item py-2" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard" @click="setCard(filteredCard)" />
           </div>
         </div>
         </form>
@@ -313,7 +314,6 @@ export default {
       modal.classList.add("show");
     },
     closeModal() {
-      alert();
       const modal = document.getElementById("modal");
       modal.classList.remove("show");
     },
@@ -338,6 +338,9 @@ export default {
       this.card = card;
       this.modal = false;
     },
+    killModal() {
+      this.modal = false;
+    },
   },
 };
 </script>
@@ -345,6 +348,22 @@ export default {
 <style scoped lang="scss">
 #mainBody {
   font-family: "Roboto", sans-serif;
+}
+
+#blanket{
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+}
+
+#suggest{
+  cursor: pointer;
 }
 
 #search-bar, #suggest{
