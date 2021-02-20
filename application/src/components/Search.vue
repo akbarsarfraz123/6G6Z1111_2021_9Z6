@@ -28,17 +28,17 @@
           @focus="update"
         />
         <button
-          class="btn btn-success"
+          class="btn btn-danger"
           type="button"
           data-mdb-ripple-color="dark"
         >
           <font-awesome-icon icon="search" />
         </button>
         </div>
-        <div class="w-100" v-if="filteredCards && modal">
+        <div class="w-100" id="search-cards" v-if="filteredCards && modal">
           <div>
             <div id="blanket" @click="killModal"></div>
-            <input type="text" class="list-group-item py-2" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard" @click="setCard(filteredCard)" />
+            <input type="text" class="list-group-item py-2 my-1" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard" @click="setCard(filteredCard)" />
           </div>
         </div>
         </form>
@@ -346,6 +346,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+button{
+  background: linear-gradient(
+    to right,
+    #a80a14c5 0%,
+    #a80a14c5 100%,
+    #fff 0%,
+    #fff 100%
+  );
+  height: 38px;
+}
 #mainBody {
   font-family: "Roboto", sans-serif;
 }
