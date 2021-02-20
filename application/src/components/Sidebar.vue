@@ -2,7 +2,7 @@
   <div>
     <nav class="nav bg-dark d-flex flex-column shadow-right">
       <div>
-        <h1 class="mt-3">1CWK100</h1>
+        <h1 class="mt-3">1CWK100 - Advanced Web Devleopment</h1>
       </div>
       <div class="section-split"></div>
       <div class="nav-account">
@@ -10,8 +10,11 @@
           <p class="ms-1 mb-2 h6">{{ getEmail }}</p>
         </div>
         <div class="account-extras d-flex">
-          <a class="me-auto ms-1" href="">account details</a>
-          <a class="me-1" @click="logout">log out</a>
+          <router-link :to="{ name: 'Settings' }"
+          ><font-awesome-icon icon="" /> Settings</router-link>
+          <br>
+        
+          <a class="me-1" @click="logout">Log Out</a>
         </div>
         <div class="section-split"></div>
       </div>

@@ -5,6 +5,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Documents from '../views/Documents.vue'
 import Manage from '../views/Manage.vue'
 import Remove from '../views/Remove.vue'
+import Settings from '../views/Settings.vue'
 import * as firebase from '../firebase'
 
 const routes: Array<RouteRecordRaw> = [
@@ -33,6 +34,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/add',
     name: 'Add',
     component: Add
+  },
+  {
+    path: '/Settings',
+    name: 'Settings',
+    component: () => import( /* webpackChunkName: "settings" */ '../views/Settings.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/documents',
