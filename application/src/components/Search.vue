@@ -17,7 +17,7 @@
       <form class="d-flex mx-auto input-group w-50">
         <input
           type="search"
-          class="form-control mx-auto"
+          class="form-control my-0 mx-auto"
           placeholder="Search"
           aria-label="Search"
         />

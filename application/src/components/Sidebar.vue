@@ -7,14 +7,14 @@
       <div class="section-split"></div>
       <div class="nav-account">
         <div class="account d-flex justify-content-start">
-          <p class="ms-1 mb-2 h6">{{ getEmail }}</p>
+          <p class="ms-4 mb-2 h6">{{ getEmail }}</p>
         </div>
         <div class="account-extras d-flex">
-          <router-link :to="{ name: 'Settings' }"
-          ><font-awesome-icon icon="" /> Settings</router-link>
-          <br>
-        
-          <a class="me-1" @click="logout">Log Out</a>
+          <router-link class="ms-4" :to="{ name: 'Settings' }"
+            ><font-awesome-icon icon="" /> Settings</router-link
+          >
+
+          <a class="ms-auto me-4" @click="logout">Log Out</a>
         </div>
         <div class="section-split"></div>
       </div>
