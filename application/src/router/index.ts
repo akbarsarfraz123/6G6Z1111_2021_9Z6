@@ -28,12 +28,19 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: About
+    component: About,
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: '/add',
     name: 'Add',
-    component: Add
+    component: Add,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/Settings',
@@ -46,17 +53,26 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/documents',
     name: 'Documents',
-    component: Documents
+    component: Documents,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/remove',
     name: 'Remove',
-    component: Remove
+    component: Remove,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/manage',
     name: 'Manage',
-    component: Manage
+    component: Manage,
+    meta: {
+      requiresAuth: true
+    }
   }
 
 ]
