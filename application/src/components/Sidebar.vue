@@ -74,10 +74,9 @@ nav {
   position: fixed;
   background: linear-gradient(
     to right,
-    #a80a14c5 0%,
     #a80a14c5 100%,
-    #fff 0%,
-    #fff 100%
+    #fff 100%,
+    
   );
   .nav-account {
     a {
