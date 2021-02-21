@@ -1,5 +1,8 @@
 <template>
-  <section id="settings">
+<section id="settings">
+      <div class="">
+      <Sidebar />
+    </div>
     <div class="col1">
       <h3>Settings</h3>
       <p>Update your profile</p>
@@ -22,11 +25,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-
+import { mapState } from 'vuex';
+import Sidebar from "@/components/Sidebar.vue";
 export default {
   data() {
     return {
+    Sidebar,
       name: '',
       title: '',
       showSuccess: false

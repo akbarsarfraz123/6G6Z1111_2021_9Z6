@@ -43,11 +43,20 @@
         <form v-else @submit.prevent>
           <h1>Get Started</h1>
           <div>
+            <label for="name2">Name</label>
+            <input
+              v-model.trim="signupForm.name2"
+              type="text"
+              placeholder="Eg.Henry Jackson"
+              id="name2"
+            />
+          </div>
+          <div>
             <label for="email2">Email</label>
             <input
               v-model.trim="signupForm.email"
               type="text"
-              placeholder="you@email.com"
+              placeholder="youremailgoeshere@email.com"
               id="email2"
             />
           </div>
@@ -58,6 +67,24 @@
               type="password"
               placeholder="min 6 characters"
               id="password2"
+            />
+          </div>
+          <div>
+            <label for="title2">Title</label>
+            <input
+              v-model.trim="signupForm.title"
+              type="Text"
+              placeholder="eg.MMU"
+              id="title2"
+            />
+          </div>
+          <div>
+            <label for="phone2">Mobile Number</label>
+            <input
+              v-model.trim="signupForm.phone2"
+              type="Number"
+              placeholder="eg.07937333333"
+              id="phone2"
             />
           </div>
           <button @click="signup()" class="button">Sign Up</button>
@@ -85,7 +112,10 @@ export default {
       },
       signupForm: {
         email: "",
-        password: ""
+        password: "",
+        title:"",
+        name:"",
+        phone:""
       },
       showLoginForm: true,
       showPasswordReset: false
@@ -107,7 +137,10 @@ export default {
     signup() {
       this.$store.dispatch("signup", {
         email: this.signupForm.email,
-        password: this.signupForm.password
+        password: this.signupForm.password,
+        title: this.signupForm.title,
+        name: this.signupForm.name,
+        phone: this.signupForm.phone,
       });
     }
   }

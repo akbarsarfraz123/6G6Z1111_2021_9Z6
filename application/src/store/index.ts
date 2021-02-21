@@ -46,7 +46,7 @@ export default createStore({
     async signup({ dispatch }, form) {
       const user = fb.auth.createUserWithEmailAndPassword(
         form.email,
-        form.password
+        form.password,
       );
       console.log("test " + user);
       if (user) dispatch("fetchUserProfile", form.email);
