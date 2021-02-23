@@ -75,10 +75,9 @@ export default {
       this.searchDatabase;
     },
     filterCards() {
-      if(this.card == '') {
+      if (this.card == "") {
         this.update();
-      }
-      else {
+      } else {
         this.filteredCards = this.cards.filter(card => {
           return card.toLowerCase().includes(this.card.toLowerCase());
         })
@@ -90,26 +89,13 @@ export default {
     },
     killModal() {
       this.modal = false;
-    },
-    searchDatabase() {
-      db.collection("testCollection").doc("testDoc")
-      .onSnapshot((doc) => {
-        console.log("Current data: ", doc.data());
-    });
     }
-  },
-  created: function(){
-    db.collection("testCollection").doc("testDoc")
-    .onSnapshot((doc) => {
-        console.log("Current data: ", doc.data());
-    });
   }
 };
 </script>
 
 <style scoped lang="scss">
-
-button{
+button {
   background: linear-gradient(
     to right,
     #a80a14c5 0%,
@@ -133,15 +119,16 @@ button{
     top: 0;
     left: 0;
 
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
-#suggest{
+#suggest {
   cursor: pointer;
 }
 
-#search-bar, #suggest{
+#search-bar,
+#suggest {
   width: 90%;
   padding: 6px 12px;
 }
