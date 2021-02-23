@@ -66,8 +66,12 @@ export default {
     },
     findCharts() {
       db.collection("mutationsCollection").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          this.cards.push(doc.id);
+        querySnapshot.forEach((doc) => {         
+          db.collection("mutationsCollection").doc(doc.id).collection("titleCollection").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              this.cards.push(doc.data().text);
+            });
+          });
         });
       });
     },
