@@ -1,17 +1,19 @@
 <template>
-  <div>
+  <div id="app">
     <router-view />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script>
+import { mapState } from "vuex";
 
-export default defineComponent({
+export default {
   components: {},
-});
+  computed: {
+    ...mapState(["userProfile"])
+  }
+};
 </script>
-
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -19,9 +21,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  h1 {
-    font-size: 2.5em;
-  }
 }
 
 #nav {
