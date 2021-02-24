@@ -120,6 +120,8 @@ button {
     padding: 0;
     margin: 0;
 
+    z-index: 2;
+
     top: 0;
     left: 0;
 
@@ -135,6 +137,8 @@ button {
 #suggest {
   width: 90%;
   padding: 6px 12px;
+
+  z-index: 10;
 }
 
 .form-control {
