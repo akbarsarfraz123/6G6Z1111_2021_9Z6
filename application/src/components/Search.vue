@@ -68,8 +68,8 @@ export default {
       db.collection("mutationsCollection").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {         
           db.collection("mutationsCollection").doc(doc.id).collection("titleCollection").get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-              this.cards.push(doc.data().text);
+            querySnapshot.forEach((docTitle) => {
+              this.cards.push(docTitle.data().text + " (" + doc.id + ")");
             });
           });
         });
