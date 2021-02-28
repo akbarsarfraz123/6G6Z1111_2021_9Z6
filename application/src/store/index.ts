@@ -1,16 +1,11 @@
-
 import { createStore } from "vuex";
 import * as fb from "../firebase";
 import router from "../router/index";
-
-
 
 export default createStore({
   state: {
     userProfile: {},
     userEmail: "",
-    
-    
   },
   getters: {
     getUserProfile: (state) => {
@@ -31,33 +26,30 @@ export default createStore({
   actions: {
     async login({ dispatch }, form) {
       // sign user in
-      const {user} =await fb.auth.signInWithEmailAndPassword(form.email, form.password);
+      await fb.auth.signInWithEmailAndPassword(form.email, form.password);
       // fetch user profile and set in state
       console.log(form.email);
-      dispatch("fetchUserProfile", user);
+      dispatch("fetchUserProfile", form.email);
     },
-    async signup({ dispatch },form) {
-      const user = fb.auth.createUserWithEmailAndPassword(
-        form.email,
-        form.password
-      );
-      
-      console.log("test " + user);
-      if (user) dispatch("fetchUserProfile", form.email);
-    
-    },
-    async fetchUserProfile({ commit }, user) {
+    async fetchUserProfile({ commit }, email) {
       // set user profile in state
-      const userProfile = await fb.usersCollection.doc(user.uid).get()
       //commit("setUserProfile", userProfile.data());
       //commit("setUserProfile", user);
-      commit("setUserEmail","setUserProfile", user);
+      commit("setUserEmail", email);
 
-      console.log("test2" + user);
+      console.log("test2" + email);
       // change route to dashboard
       {
         router.push("/");
       }
+    },
+    async signup({ dispatch }, form) {
+      const user = fb.auth.createUserWithEmailAndPassword(
+        form.email,
+        form.password
+      );
+      console.log("test " + user);
+      if (user) dispatch("fetchUserProfile", form.email);
     },
     async logout({ commit }) {
       // log user out
@@ -69,8 +61,6 @@ export default createStore({
       // redirect to login view
       router.push("/login");
     },
-    
   },
-
   modules: {},
 });
