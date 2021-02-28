@@ -1,11 +1,16 @@
+
 import { createStore } from "vuex";
 import * as fb from "../firebase";
 import router from "../router/index";
+
+
 
 export default createStore({
   state: {
     userProfile: {},
     userEmail: "",
+    
+    
   },
   getters: {
     getUserProfile: (state) => {
@@ -31,31 +36,28 @@ export default createStore({
       console.log(form.email);
       dispatch("fetchUserProfile", user);
     },
+    async signup({ dispatch },form) {
+      const user = fb.auth.createUserWithEmailAndPassword(
+        form.email,
+        form.password
+      );
+      
+      console.log("test " + user);
+      if (user) dispatch("fetchUserProfile", form.email);
+    
+    },
     async fetchUserProfile({ commit }, user) {
       // set user profile in state
       const userProfile = await fb.usersCollection.doc(user.uid).get()
       //commit("setUserProfile", userProfile.data());
       //commit("setUserProfile", user);
-      commit("setUserEmail", user);
+      commit("setUserEmail","setUserProfile", user);
 
       console.log("test2" + user);
       // change route to dashboard
       {
         router.push("/");
       }
-    },
-    async signup({ dispatch }, form) {
-      const  {user}  = await fb.auth.createUserWithEmailAndPassword(form.email,form.password);
-        
-      
-      await fb.usersCollection.doc(user.uid).set({
-        name: form.name2,
-        title: form.title2,
-        phone: form.phone2
-      });
-
-      console.log("test " + user);
-      dispatch('fetchUserProfile', user)
     },
     async logout({ commit }) {
       // log user out
@@ -67,6 +69,8 @@ export default createStore({
       // redirect to login view
       router.push("/login");
     },
+    
   },
+
   modules: {},
 });
