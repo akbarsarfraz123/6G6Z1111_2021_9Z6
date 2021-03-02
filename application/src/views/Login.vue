@@ -6,7 +6,7 @@
     ></PasswordReset>
     <section>
       <div class="col1">
-        <link rel="icon" href="<%= BASE_URL %>humanheart2.png" />
+        <link rel="icon" href="<%= BASE_URL %>heart.png" />
         <h1>Experimental Data-sharing Platform for Cardiomyopathies</h1>
         <p>
           Welcome to the Platform Please Sign In Using your Credentials Or

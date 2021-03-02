@@ -47,7 +47,7 @@ export default createStore({
       const user = fb.auth.createUserWithEmailAndPassword(
         form.email,
         form.password
-      ).catch(function(error) {
+      ).catch(function (error) {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -61,18 +61,26 @@ export default createStore({
       // this will send various data to firestore in the users area to then be accessed.
       await fb.usersCollection.doc().set({
         name: form.name,
-        title:form.title,
-        phone:form.phone
+        title: form.title,
+        phone: form.phone
       }),
-      
-      
-      
-      console.log("test" + user);
+        console.log("test" + user);
       if (user) dispatch("fetchUserProfile", form.email);
       {
         router.push("/");
       }
     },
+    async updateProfile({ dispatch }, user) {
+      // update user object
+      await fb.usersCollection.doc(user).update({
+        name: user.name,
+        title: user.title,
+        phone: user.phone
+      })
+
+      dispatch('fetchUserProfile', { uid: user })
+    },
+
     async logout({ commit }) {
       // log user out
       await fb.auth.signOut();
