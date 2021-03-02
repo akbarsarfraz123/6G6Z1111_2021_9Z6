@@ -47,9 +47,31 @@ export default createStore({
       const user = fb.auth.createUserWithEmailAndPassword(
         form.email,
         form.password
-      );
-      console.log("test " + user);
+      ).catch(function(error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
+      // this will send various data to firestore in the users area to then be accessed.
+      await fb.usersCollection.doc().set({
+        name: form.name,
+        title:form.title,
+        phone:form.phone
+      }),
+      
+      
+      
+      console.log("test" + user);
       if (user) dispatch("fetchUserProfile", form.email);
+      {
+        router.push("/");
+      }
     },
     async logout({ commit }) {
       // log user out

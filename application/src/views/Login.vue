@@ -45,7 +45,7 @@
           <div>
             <label for="name">Name</label>
             <input
-              v-model.trim="signupForm.name2"
+              v-model.trim="signupForm.name"
               type="text"
               placeholder="Eg.Henry Jackson"
               id="name"
@@ -81,7 +81,7 @@
           <div>
             <label for="phone">Mobile Number</label>
             <input
-              v-model.trim="signupForm.phone2"
+              v-model.trim="signupForm.phone"
               type="Number"
               placeholder="eg.07937333333"
               id="phone"
