@@ -22,7 +22,7 @@ const db = firebase.firestore()
 const auth = firebase.auth()
 
 // collection references
-const usersCollection = db.collection('users')
+const usersCollection = db.collection('Users')
 
 const defaultMutations: object[] = [];
 const defaultCollection = db.collection("mutationsCollection")
