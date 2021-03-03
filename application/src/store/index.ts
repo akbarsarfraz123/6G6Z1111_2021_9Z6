@@ -6,6 +6,7 @@ export default createStore({
   state: {
     userProfile: {},
     userEmail: "",
+    defaultMutations: fb.defaultMutations
   },
   getters: {
     getUserProfile: (state) => {
@@ -36,6 +37,7 @@ export default createStore({
     },
     async fetchUserProfile({ commit }, user) {
       // set user profile in state
+    
       const userProfile = await fb.usersCollection.doc(user.uid).get();
       //commit("setUserProfile", userProfile.data());
       //commit("setUserProfile", user);
