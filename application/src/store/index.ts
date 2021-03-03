@@ -6,6 +6,7 @@ export default createStore({
   state: {
     userProfile: {},
     userEmail: "",
+    defaultMutations: fb.defaultMutations
   },
   getters: {
     getUserProfile: (state) => {
@@ -36,6 +37,7 @@ export default createStore({
       //commit("setUserProfile", userProfile.data());
       //commit("setUserProfile", user);
       commit("setUserEmail", email);
+    
 
       console.log("test2" + email);
       // change route to dashboard

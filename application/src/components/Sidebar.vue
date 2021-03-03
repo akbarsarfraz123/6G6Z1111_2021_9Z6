@@ -49,7 +49,7 @@ export default {
       get() {
         return this.$store.getters.getUserEmail;
       },
-      set(value){
+      set(value) {
         this.getEmail = value;
       }
     }
