@@ -6,6 +6,7 @@ export default createStore({
   state: {
     userProfile: {},
     userEmail: "",
+    searchID: "",
   },
   getters: {
     getUserProfile: (state) => {
@@ -14,6 +15,9 @@ export default createStore({
     getUserEmail: (state) => {
       return state.userEmail;
     },
+    getSearchID: (state) => {
+      return state.searchID;
+    }
   },
   mutations: {
     setUserProfile(state, val) {
@@ -22,6 +26,10 @@ export default createStore({
     setUserEmail(state, val) {
       state.userEmail = val;
     },
+    setSearchID(state, val) {
+      state.searchID = val;
+      console.log(val);
+    }
   },
   actions: {
     async login({ dispatch }, form) {
