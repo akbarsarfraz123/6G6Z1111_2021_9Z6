@@ -6,7 +6,7 @@
     ></PasswordReset>
     <section>
       <div class="col1">
-        <link rel="icon" href="<%= BASE_URL %>humanheart2.png" />
+        <link rel="icon" href="<%= BASE_URL %>heart.png" />
         <h1>Experimental Data-sharing Platform for Cardiomyopathies</h1>
         <p>
           Welcome to the Platform Please Sign In Using your Credentials Or
@@ -43,12 +43,12 @@
         <form v-else @submit.prevent>
           <h1>Get Started</h1>
           <div>
-            <label for="name2">Name</label>
+            <label for="name">Name</label>
             <input
-              v-model.trim="signupForm.name2"
+              v-model.trim="signupForm.name"
               type="text"
               placeholder="Eg.Henry Jackson"
-              id="name2"
+              id="name"
             />
           </div>
           <div>
@@ -70,21 +70,21 @@
             />
           </div>
           <div>
-            <label for="title2">Title</label>
+            <label for="title">Title</label>
             <input
               v-model.trim="signupForm.title"
               type="Text"
               placeholder="eg.MMU"
-              id="title2"
+              id="title"
             />
           </div>
           <div>
-            <label for="phone2">Mobile Number</label>
+            <label for="phone">Mobile Number</label>
             <input
-              v-model.trim="signupForm.phone2"
+              v-model.trim="signupForm.phone"
               type="Number"
               placeholder="eg.07937333333"
-              id="phone2"
+              id="phone"
             />
           </div>
           <button @click="signup()" class="button">Sign Up</button>
