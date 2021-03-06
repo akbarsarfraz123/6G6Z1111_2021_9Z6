@@ -18,6 +18,7 @@
             class="btn btn-danger"
             type="button"
             data-mdb-ripple-color="dark"
+            @click="submit"
           >
             <font-awesome-icon icon="search" />
           </button>
@@ -40,43 +41,27 @@ export default {
   data: function() {
     return {
       card: '',
+      // cards: ["MYBPC3Fig4", "MYBPC3Fig5", "MYBPC3Fig8", "MYHFig7", "MYHFig8", "TNNTFig2", "TNNTFig3", "TNNTFig8", "TPM1Fig2", "TPM1Fig4"],
       cards: [],
       filteredCards: [],
       modal: false,
-
-      testObjects: {},
-      testObject: {
-        name: null,
-        value: null
-      }
     };
   },
   mounted: function() {
-    this.findCharts()
+    this.findCharts();
   },
   methods: {
-    openModal() {
-      const modal = document.getElementById("modal");
-      modal.classList.add("show");
-    },
-    closeModal() {
-      const modal = document.getElementById("modal");
-      modal.classList.remove("show");
-    },
     findCharts() {
       db.collection("mutationsCollection").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {         
-          db.collection("mutationsCollection").doc(doc.id).collection("titleCollection").get().then((querySnapshot) => {
-            querySnapshot.forEach((docTitle) => {
-              this.cards.push(docTitle.data().text + " (" + doc.id + ")");
-            });
-          });
+          this.cards.push(doc.id);
         });
       });
     },
     update() {
       this.modal = true;
       this.filteredCards = [];
+      console.log(this.$store.getters.getSearchID);
     },
     filterCards() {
       if (this.card == "") {
@@ -93,6 +78,11 @@ export default {
     },
     killModal() {
       this.modal = false;
+    },
+    submit() {
+      this.$store.state.searchID = this.card;
+      // this.$store.mutations.setSearchID(this.card);
+      this.update();
     },
   }
 };
