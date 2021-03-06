@@ -60,12 +60,14 @@ export default {
       db.collection("userCollection").doc(this.$store.getters.getUserEmail).collection("charts").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {         
           this.cards.push(doc.id);
+          console.log("check");
         });
       });
     },
     update() {
       this.modal = true;
       this.filteredCards = [];
+      console.log(this.cards);
       console.log(this.$store.getters.getSearchID);
     },
     filterCards() {

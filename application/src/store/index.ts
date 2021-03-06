@@ -1,8 +1,16 @@
-import { createStore } from "vuex";
+import {createStore} from "vuex";
 import * as fb from "../firebase";
 import router from "../router/index";
+import createPersistedState from "vuex-persistedstate"
+import * as Cookies from 'js-cookie'
+//const Cookies = require('js-cookie')
 
-export default createStore({
+export const store = createStore({
+  //plugins: [createPersistedState({
+  //getState: (key) => Cookies.getJSON(key),
+  //setState: (key, state) => Cookies.set(key, state, {expires: 3, secure: true})
+  //})],
+  plugins: [createPersistedState()],
   state: {
     userProfile: {},
     userEmail: "",
@@ -33,19 +41,19 @@ export default createStore({
     }
   },
   actions: {
-    async login({ dispatch }, form) {
+    async login({dispatch}, form) {
       // sign user in
       await fb.auth.signInWithEmailAndPassword(form.email, form.password);
       // fetch user profile and set in state
       console.log(form.email);
       dispatch("fetchUserProfile", form.email);
     },
-    async fetchUserProfile({ commit }, email) {
+    async fetchUserProfile({commit}, email) {
       // set user profile in state
       //commit("setUserProfile", userProfile.data());
       //commit("setUserProfile", user);
       commit("setUserEmail", email);
-    
+
 
       console.log("test2" + email);
       // change route to dashboard
@@ -53,7 +61,7 @@ export default createStore({
         router.push("/");
       }
     },
-    async signup({ dispatch }, form) {
+    async signup({dispatch}, form) {
       const user = fb.auth.createUserWithEmailAndPassword(
         form.email,
         form.password
@@ -80,7 +88,7 @@ export default createStore({
         router.push("/");
       }
     },
-    async updateProfile({ dispatch }, user) {
+    async updateProfile({dispatch}, user) {
       // update user object
       await fb.usersCollection.doc(user).update({
         name: user.name,
@@ -88,10 +96,10 @@ export default createStore({
         phone: user.phone
       })
 
-      dispatch('fetchUserProfile', { uid: user })
+      dispatch('fetchUserProfile', {uid: user})
     },
 
-    async logout({ commit }) {
+    async logout({commit}) {
       // log user out
       await fb.auth.signOut();
 
@@ -101,6 +109,12 @@ export default createStore({
       // redirect to login view
       router.push("/login");
     },
+    async insertUserData({commit}, {mutationName, data}) {
+      console.log(mutationName)
+      fb.userCollection.doc(this.state.userEmail).collection("charts").doc(mutationName).set(
+         data
+      ).then(() => {console.log("passed")}).catch(() =>console.log("failed"))
+    }
   },
   modules: {},
 });
