@@ -178,7 +178,7 @@ export default defineComponent({
       yaxis: Array<object>,
       xvals: Array<number>
     ) {
-      const graphTitle: object = { title: this.graphTitle };
+      const graphTitle: object = { text: this.graphTitle };
       const xaxisData: object = {
         categories: xvals,
         title: [{ text: this.xaxisName }],

@@ -15,6 +15,7 @@ export const store = createStore({
     userProfile: {},
     userEmail: "",
     searchID: "",
+    userData: [],
     defaultMutations: fb.defaultMutations
   },
   getters: {
@@ -26,6 +27,9 @@ export const store = createStore({
     },
     getSearchID: (state) => {
       return state.searchID;
+    },
+    getUserData: (state) => {
+      return state.userData;
     }
   },
   mutations: {
@@ -38,6 +42,9 @@ export const store = createStore({
     setSearchID(state, val) {
       state.searchID = val;
       console.log("success : " + val);
+    },
+    setUserData(state, val){
+      state.userData = val;
     }
   },
   actions: {
@@ -114,7 +121,21 @@ export const store = createStore({
       fb.userCollection.doc(this.state.userEmail).collection("charts").doc(mutationName).set(
          data
       ).then(() => {console.log("passed")}).catch(() =>console.log("failed"))
-    }
+    },
+    async retrieveUserData({commit}) {
+      const usersData = fb.userCollection.doc(this.state.userEmail).collection("charts");
+      const userMutations: object[] = [];
+      usersData.get().then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const mutation = {
+            "title": doc.id,
+            "data": doc.data()
+          };
+          userMutations.push(mutation)
+        })
+        commit("setUserData", userMutations)
+      })
+      }
   },
   modules: {},
 });
