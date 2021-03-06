@@ -14,6 +14,7 @@ export const store = createStore({
   state: {
     userProfile: {},
     userEmail: "",
+    userData: [],
     defaultMutations: fb.defaultMutations
   },
   getters: {
@@ -23,6 +24,9 @@ export const store = createStore({
     getUserEmail: (state) => {
       return state.userEmail;
     },
+    getUserData: (state) => {
+      return state.userData;
+    }
   },
   mutations: {
     setUserProfile(state, val) {
@@ -31,6 +35,9 @@ export const store = createStore({
     setUserEmail(state, val) {
       state.userEmail = val;
     },
+    setUserData(state, val){
+      state.userData = val;
+    }
   },
   actions: {
     async login({dispatch}, form) {
@@ -106,7 +113,21 @@ export const store = createStore({
       fb.userCollection.doc(this.state.userEmail).collection("charts").doc(mutationName).set(
          data
       ).then(() => {console.log("passed")}).catch(() =>console.log("failed"))
-    }
+    },
+    async retrieveUserData({commit}) {
+      const usersData = fb.userCollection.doc(this.state.userEmail).collection("charts");
+      const userMutations: object[] = [];
+      usersData.get().then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          const mutation = {
+            "title": doc.id,
+            "data": doc.data()
+          };
+          userMutations.push(mutation)
+        })
+        commit("setUserData", userMutations)
+      })
+      }
   },
   modules: {},
 });
