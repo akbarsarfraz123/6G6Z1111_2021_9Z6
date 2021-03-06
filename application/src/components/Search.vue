@@ -41,7 +41,8 @@ export default {
   data: function() {
     return {
       card: '',
-      cards: ["MYBPC3Fig4", "MYBPC3Fig5", "MYBPC3Fig8", "MYHFig7", "MYHFig8", "TNNTFig2", "TNNTFig3", "TNNTFig8", "TPM1Fig2", "TPM1Fig4"],
+      cards: [],
+      // cards: ["MYBPC3Fig4", "MYBPC3Fig5", "MYBPC3Fig8", "MYHFig7", "MYHFig8", "TNNTFig2", "TNNTFig3", "TNNTFig8", "TPM1Fig2", "TPM1Fig4"],
       filteredCards: [],
       modal: false,
     };
@@ -52,6 +53,11 @@ export default {
   methods: {
     findCharts() {
       db.collection("mutationsCollection").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {         
+          this.cards.push(doc.id);
+        });
+      });
+      db.collection("userCollection").doc(this.$store.getters.getUserEmail).collection("charts").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {         
           this.cards.push(doc.id);
         });
