@@ -7,10 +7,14 @@
       <div class="w-100">
         <Search />
       </div>
-      <div>
-        <img alt="Vue logo" src="../assets/logo.png" />
-        <p class="m-5">test</p>
-        <HelloWorld msg="Welcome to Your Vue.js App" />
+      <div class="row w-100 mx-auto">
+        <div
+          v-for="chart in defaultCharts"
+          :key="chart.title"
+          class="col-12 col-xl-6"
+        >
+          <LineChart :data="chart" />
+        </div>
       </div>
     </div>
   </div>
@@ -18,20 +22,30 @@
 
 // @ is an alias to /src
 <script lang="ts">
-import Search from "@/components/Search.vue";
-import Sidebar from "@/components/Sidebar.vue";
-import HelloWorld from "@/components/HelloWorld.vue";
+import Search from "../components/Search.vue";
+import Sidebar from "../components/Sidebar.vue";
+import HelloWorld from "../components/HelloWorld.vue";
+import LineChart from "../components/LineChart.vue";
 import { defineComponent } from "vue";
-
+import computed from "vue";
 export default defineComponent({
   components: {
-    HelloWorld,
     Search,
     Sidebar,
+    LineChart,
+  },
+  data: function() {
+    return {
+      searchID: "",
+    }
+  },
+  computed: {
+    defaultCharts() {
+      return this.$store.state.defaultMutations;
+    },
   },
 });
 </script>
-
 
 <style lang="scss">
 .home {

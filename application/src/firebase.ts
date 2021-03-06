@@ -22,17 +22,26 @@ const db = firebase.firestore()
 const auth = firebase.auth()
 
 // collection references
-const usersCollection = db.collection('users')
-const postsCollection = db.collection('posts')
-const commentsCollection = db.collection('comments')
-const likesCollection = db.collection('likes')
+const usersCollection = db.collection('Users')
+
+const defaultMutations: object[] = [];
+const defaultCollection = db.collection("mutationsCollection")
+defaultCollection.get().then(querySnapshot => {
+  querySnapshot.forEach(doc => {
+      const mutation = {
+        "title": doc.id,
+        "data": doc.data()
+      };
+      defaultMutations.push(mutation)
+  })
+  console.log(defaultMutations)
+})
+
 
 // export utils/refs
 export {
   db,
   auth,
   usersCollection,
-  postsCollection,
-  commentsCollection,
-  likesCollection
+  defaultMutations
 }

@@ -7,6 +7,7 @@ export default createStore({
     userProfile: {},
     userEmail: "",
     searchID: "",
+    defaultMutations: fb.defaultMutations
   },
   getters: {
     getUserProfile: (state) => {
@@ -28,7 +29,7 @@ export default createStore({
     },
     setSearchID(state, val) {
       state.searchID = val;
-      console.log(val);
+      console.log("success : " + val);
     }
   },
   actions: {
@@ -44,6 +45,7 @@ export default createStore({
       //commit("setUserProfile", userProfile.data());
       //commit("setUserProfile", user);
       commit("setUserEmail", email);
+    
 
       console.log("test2" + email);
       // change route to dashboard
@@ -55,10 +57,40 @@ export default createStore({
       const user = fb.auth.createUserWithEmailAndPassword(
         form.email,
         form.password
-      );
-      console.log("test " + user);
+      ).catch(function (error) {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
+      // this will send various data to firestore in the users area to then be accessed.
+      await fb.usersCollection.doc().set({
+        name: form.name,
+        title: form.title,
+        phone: form.phone
+      }),
+        console.log("test" + user);
       if (user) dispatch("fetchUserProfile", form.email);
+      {
+        router.push("/");
+      }
     },
+    async updateProfile({ dispatch }, user) {
+      // update user object
+      await fb.usersCollection.doc(user).update({
+        name: user.name,
+        title: user.title,
+        phone: user.phone
+      })
+
+      dispatch('fetchUserProfile', { uid: user })
+    },
+
     async logout({ commit }) {
       // log user out
       await fb.auth.signOut();

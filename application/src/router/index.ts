@@ -5,6 +5,7 @@ import Dashboard from '../views/Dashboard.vue'
 import Documents from '../views/Documents.vue'
 import Manage from '../views/Manage.vue'
 import Remove from '../views/Remove.vue'
+import Settings from '../views/Settings.vue'
 import * as firebase from '../firebase'
 
 const routes: Array<RouteRecordRaw> = [
@@ -27,27 +28,51 @@ const routes: Array<RouteRecordRaw> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: About
+    component: About,
+    meta: {
+      requiresAuth: true
+    }
+
   },
   {
     path: '/add',
     name: 'Add',
-    component: Add
+    component: Add,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/Settings',
+    name: 'Settings',
+    component: () => import( /* webpackChunkName: "settings" */ '../views/Settings.vue'),
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/documents',
     name: 'Documents',
-    component: Documents
+    component: Documents,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/remove',
     name: 'Remove',
-    component: Remove
+    component: Remove,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/manage',
     name: 'Manage',
-    component: Manage
+    component: Manage,
+    meta: {
+      requiresAuth: true
+    }
   }
 
 ]

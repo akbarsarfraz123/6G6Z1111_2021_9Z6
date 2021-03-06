@@ -2,16 +2,19 @@
   <div>
     <nav class="nav bg-dark d-flex flex-column shadow-right">
       <div>
-        <h1 class="mt-3">1CWK100</h1>
+        <h1 class="mt-3">1CWK100 - Advanced Web Devleopment</h1>
       </div>
       <div class="section-split"></div>
       <div class="nav-account">
         <div class="account d-flex justify-content-start">
-          <p class="ms-1 mb-2 h6">{{ getEmail }}</p>
+          <p class="ms-4 mb-2 h6">{{ getEmail }}</p>
         </div>
         <div class="account-extras d-flex">
-          <a class="me-auto ms-1" href="">account details</a>
-          <a class="me-1" @click="logout">log out</a>
+          <router-link class="ms-4" :to="{ name: 'Settings' }"
+            ><font-awesome-icon icon="" /> Settings</router-link
+          >
+
+          <a class="ms-auto me-4" @click="logout">Log Out</a>
         </div>
         <div class="section-split"></div>
       </div>
@@ -46,7 +49,7 @@ export default {
       get() {
         return this.$store.getters.getUserEmail;
       },
-      set(value){
+      set(value) {
         this.getEmail = value;
       }
     }
@@ -74,7 +77,7 @@ nav {
     #a80a14c5 0%,
     #a80a14c5 100%,
     #fff 0%,
-    #fff 100%
+    #fff 0%
   );
   .nav-account {
     a {

@@ -37,11 +37,6 @@
 <script>
 import {db} from '../firebase';
 export default {
-  computed: {
-    getSearchID() {
-      return this.$store.getters.getSearchID();
-    }
-  },
   components: {},
   data: function() {
     return {
@@ -65,7 +60,7 @@ export default {
     update() {
       this.modal = true;
       this.filteredCards = [];
-      console.log(this.cards);
+      console.log(this.$store.getters.getSearchID);
     },
     filterCards() {
       if (this.card == "") {
@@ -84,7 +79,8 @@ export default {
       this.modal = false;
     },
     submit() {
-      this.$store.mutations.setSearchID(this.card);
+      this.$store.state.searchID = this.card;
+      this.update();
     },
   }
 };
