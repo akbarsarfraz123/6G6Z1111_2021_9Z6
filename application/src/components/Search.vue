@@ -66,6 +66,7 @@ export default {
     update() {
       this.modal = true;
       this.filteredCards = [];
+      console.log(this.cards);
       console.log(this.$store.getters.getSearchID);
     },
     filterCards() {
