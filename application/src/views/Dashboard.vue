@@ -13,7 +13,7 @@
           :key="chart.title"
           class="col-12 col-xl-6"
         >
-          <LineChart :data="chart" />
+          <LineChart :data="chart" @click="navigate"/>
         </div>
       </div>
     </div>
@@ -44,6 +44,11 @@ export default defineComponent({
       return this.$store.state.defaultMutations;
     },
   },
+  methods: {
+    navigate() {
+      // placeholder
+    }
+  }
 });
 </script>
 
