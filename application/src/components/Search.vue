@@ -26,7 +26,7 @@
           <div class="w-100" id="search-cards" v-if="filteredCards && modal">
             <div>
               <div id="blanket" @click="killModal"></div>
-              <input type="text" class="list-group-item py-2 my-1" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard" @click="setCard(filteredCard)" />
+              <input type="text" class="list-group-item py-2 my-1" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard.id" @click="setCard(filteredCard.id)" />
             </div>
           </div>
         </form>
@@ -37,12 +37,11 @@
 <script>
 import {db} from '../firebase';
 export default {
-  components: {},
   data: function() {
     return {
       card: '',
       cards: [],
-      // cards: ["MYBPC3Fig4", "MYBPC3Fig5", "MYBPC3Fig8", "MYHFig7", "MYHFig8", "TNNTFig2", "TNNTFig3", "TNNTFig8", "TPM1Fig2", "TPM1Fig4"],
+      docs: [],
       filteredCards: [],
       modal: false,
     };
@@ -54,30 +53,26 @@ export default {
     findCharts() {
       db.collection("mutationsCollection").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {         
-          this.cards.push(doc.id);
+          this.docs.push(doc);
         });
       });
       db.collection("userCollection").doc(this.$store.getters.getUserEmail).collection("charts").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {         
-          this.cards.push(doc.id);
-          console.log("check");
+          this.docs.push(doc);
         });
       });
     },
     update() {
       this.modal = true;
       this.filteredCards = [];
-      console.log(this.cards);
-      console.log(this.$store.getters.getSearchID);
     },
     filterCards() {
-      if (this.card == "") {
-        this.update();
-      } else {
-        this.filteredCards = this.cards.filter(card => {
-          return card.toLowerCase().includes(this.card.toLowerCase());
-        })
-      }
+      this.docs.forEach((doc) => {
+        const docId = doc.id.toLowerCase();
+        if(this.card != '' && docId.includes(this.card)) {
+          this.filteredCards.push(doc);
+        }
+      });
     },
     setCard(card) {
       this.card = card;
