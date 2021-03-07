@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script>
+<script >
 export default {
   setup() {
     return {};
