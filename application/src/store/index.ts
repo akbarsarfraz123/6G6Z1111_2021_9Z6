@@ -14,7 +14,8 @@ export const store = createStore({
   state: {
     userProfile: {},
     userEmail: "",
-    searchID: "",
+    searchID: null,
+    clickedChart: {},
     userData: [],
     defaultMutations: fb.defaultMutations
   },
@@ -27,6 +28,9 @@ export const store = createStore({
     },
     getSearchID: (state) => {
       return state.searchID;
+    },
+    getClickedChart: (state) => {
+      return state.clickedChart;
     },
     getUserData: (state) => {
       return state.userData;
@@ -41,7 +45,9 @@ export const store = createStore({
     },
     setSearchID(state, val) {
       state.searchID = val;
-      console.log("success : " + val);
+    },
+    setClickedChart(state, val) {
+      state.clickedChart = val;
     },
     setUserData(state, val){
       state.userData = val;

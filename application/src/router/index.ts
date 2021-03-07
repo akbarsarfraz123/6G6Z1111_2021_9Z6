@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 import About from '../views/About.vue'
 import Add from '../views/Add.vue'
+import Chart from '../views/Chart.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Documents from '../views/Documents.vue'
 import Manage from '../views/Manage.vue'
@@ -38,6 +39,17 @@ const routes: Array<RouteRecordRaw> = [
     path: '/add',
     name: 'Add',
     component: Add,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/chart',
+    name: 'Chart',
+    component: Chart,
+    props (route) {
+      return { chartid: route.query.chartid };
+    },
     meta: {
       requiresAuth: true
     }

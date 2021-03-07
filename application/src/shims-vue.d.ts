@@ -12,6 +12,7 @@ declare module "@vue/runtime-core" {
   interface State {
     defaultMutations: object
     userData: object
+    clickedChart: object
   }
   //           // provide typings for `this.$store`
   interface ComponentCustomProperties {

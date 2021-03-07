@@ -26,7 +26,7 @@
           <div class="w-100" id="search-cards" v-if="filteredCards && modal">
             <div>
               <div id="blanket" @click="killModal"></div>
-              <input type="text" class="list-group-item py-2 my-1" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard.id" @click="setCard(filteredCard.id)" />
+              <input type="text" class="list-group-item py-2 my-1" id="suggest" v-for="filteredCard in filteredCards.slice(0,5)" v-bind:key="filteredCard" :value="filteredCard.id + ' ' + filteredCard.data().title[0].text" @click="setCard(filteredCard)" />
             </div>
           </div>
         </form>
@@ -40,8 +40,7 @@ export default {
   data: function() {
     return {
       card: '',
-      // cards: ["MYBPC3Fig4", "MYBPC3Fig5", "MYBPC3Fig8", "MYHFig7", "MYHFig8", "TNNTFig2", "TNNTFig3", "TNNTFig8", "TPM1Fig2", "TPM1Fig4"],
-      cards: [],
+      storedDoc: null,
       docs: [],
       filteredCards: [],
       modal: false,
@@ -65,26 +64,28 @@ export default {
     },
     update() {
       this.modal = true;
-      this.filteredCards = [];    
+      this.filteredCards = [];
     },
     filterCards() {
       this.filteredCards = [];
       this.docs.forEach((doc) => {
-        const docId = doc.id.toLowerCase();
-        if(this.card != '' && docId.includes(this.card)) {
+        const docId = doc.id;
+        const docTitle = doc.data().title[0].text
+        if(this.card != '' && (docId.toLowerCase().includes(this.card.toLowerCase()) || docTitle.toLowerCase().includes(this.card.toLowerCase()))) {
           this.filteredCards.push(doc);
         }
       });
     },
-    setCard(card) {
-      this.card = card;
+    setCard(doc) {
+      this.card = doc.id + ' ' + doc.data().title[0].text;
+      this.storedDoc = doc;
       this.modal = false;
     },
     killModal() {
       this.modal = false;
     },
     submit() {
-      this.$store.state.searchID = this.card;
+      this.$store.state.searchID = this.storedDoc;
       this.update();
     },
   }
