@@ -44,5 +44,6 @@ export {
   auth,
   usersCollection,
   userCollection,
-  defaultMutations
+  defaultMutations,
+  defaultCollection
 }
