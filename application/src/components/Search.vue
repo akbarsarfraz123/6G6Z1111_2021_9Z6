@@ -65,10 +65,10 @@ export default {
     },
     update() {
       this.modal = true;
-      this.filteredCards = [];
-      console.log(this.$store.getters.getSearchID);
+      this.filteredCards = [];    
     },
     filterCards() {
+      this.filteredCards = [];
       this.docs.forEach((doc) => {
         const docId = doc.id.toLowerCase();
         if(this.card != '' && docId.includes(this.card)) {
