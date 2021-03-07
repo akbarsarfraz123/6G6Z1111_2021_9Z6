@@ -2,14 +2,8 @@ import {createStore} from "vuex";
 import * as fb from "../firebase";
 import router from "../router/index";
 import createPersistedState from "vuex-persistedstate"
-import * as Cookies from 'js-cookie'
-//const Cookies = require('js-cookie')
 
 export const store = createStore({
-  //plugins: [createPersistedState({
-  //getState: (key) => Cookies.getJSON(key),
-  //setState: (key, state) => Cookies.set(key, state, {expires: 3, secure: true})
-  //})],
   plugins: [createPersistedState()],
   state: {
     userProfile: {},
@@ -35,7 +29,7 @@ export const store = createStore({
     setUserEmail(state, val) {
       state.userEmail = val;
     },
-    setUserData(state, val){
+    setUserData(state, val) {
       state.userData = val;
     }
   },
@@ -111,8 +105,8 @@ export const store = createStore({
     async insertUserData({commit}, {mutationName, data}) {
       console.log(mutationName)
       fb.userCollection.doc(this.state.userEmail).collection("charts").doc(mutationName).set(
-         data
-      ).then(() => {console.log("passed")}).catch(() =>console.log("failed"))
+        data
+      ).then(() => {console.log("passed")}).catch(() => console.log("failed"))
     },
     async retrieveUserData({commit}) {
       const usersData = fb.userCollection.doc(this.state.userEmail).collection("charts");
@@ -127,7 +121,7 @@ export const store = createStore({
         })
         commit("setUserData", userMutations)
       })
-      }
+    }
   },
   modules: {},
 });
