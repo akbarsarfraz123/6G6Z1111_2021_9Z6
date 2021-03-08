@@ -8,12 +8,11 @@
         <Search />
       </div>
       <div class="row w-100 mx-auto">
-        <div
-          v-for="chart in defaultCharts"
-          :key="chart.title"
+          <div
+          :key="this.chart.title"
           class="col-12 col-xl-6"
         >
-          <LineChart :data="chart" />
+          <router-link :to="{ path:'/chart', query: { chartid: chart.title } }"><LineChart :data="chart" /></router-link>
         </div>
       </div>
     </div>
@@ -22,23 +21,36 @@
 
 // @ is an alias to /src
 <script lang="ts">
+import {db} from '../firebase';
 import Search from "../components/Search.vue";
 import Sidebar from "../components/Sidebar.vue";
 import HelloWorld from "../components/HelloWorld.vue";
 import LineChart from "../components/LineChart.vue";
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 import computed from "vue";
 export default defineComponent({
+  props: ['chartid'],
   components: {
     Search,
     Sidebar,
     LineChart,
   },
-  computed: {
-    defaultCharts() {
-      return this.$store.state.defaultMutations;
-    },
+  data: function() {
+      return {
+        chart: {}
+      }
   },
+  mounted: function() {
+      db.collection("mutationsCollection").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {         
+          if(doc.id === this.chartid) {
+              this.chart = doc;
+          }
+          alert();
+        });
+      });
+  }
 });
 </script>
 
@@ -47,4 +59,3 @@ export default defineComponent({
   margin-left: 250px;
 }
 </style>
-
