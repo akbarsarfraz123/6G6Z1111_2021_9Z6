@@ -3,19 +3,18 @@ import 'firebase/auth'
 import 'firebase/firestore'
 
 
-// firebase init
-const firebaseConfig = {
-  apiKey: "AIzaSyCwH9MZ5_PAhycYKkvNWtepnOtEzl-BRA8",
-  authDomain: "advancedwebdevelopment-24804.firebaseapp.com",
-  databaseURL: "https://advancedwebdevelopment-24804-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "advancedwebdevelopment-24804",
-  storageBucket: "advancedwebdevelopment-24804.appspot.com",
-  messagingSenderId: "567354288751",
-  appId: "1:567354288751:web:b501ff44c206536821fb9a",
-  measurementId: "G-X41QVBKCTJ"
-};
-
-firebase.initializeApp(firebaseConfig)
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAgVfn_0JhGPH2AJ_RV0pQAIMZ_MNof42c",
+    authDomain: "advancedweb-bismillah.firebaseapp.com",
+    projectId: "advancedweb-bismillah",
+    storageBucket: "advancedweb-bismillah.appspot.com",
+    messagingSenderId: "844158624908",
+    appId: "1:844158624908:web:12acb245c0f74f0df747a9"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig)
 
 // utils
 const db = firebase.firestore()

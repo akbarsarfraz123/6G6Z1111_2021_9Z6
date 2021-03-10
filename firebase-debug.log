@@ -1,0 +1,127 @@
+[debug] [2021-03-10T04:00:16.555Z] ----------------------------------------------------------------------
+[debug] [2021-03-10T04:00:16.557Z] Command:       C:\node.exe C:\Users\akbar\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-03-10T04:00:16.557Z] CLI Version:   9.6.0
+[debug] [2021-03-10T04:00:16.557Z] Platform:      win32
+[debug] [2021-03-10T04:00:16.557Z] Node Version:  v14.16.0
+[debug] [2021-03-10T04:00:16.559Z] Time:          Wed Mar 10 2021 04:00:16 GMT+0000 (Greenwich Mean Time)
+[debug] [2021-03-10T04:00:16.559Z] ----------------------------------------------------------------------
+[debug] [2021-03-10T04:00:16.559Z] 
+[debug] [2021-03-10T04:00:16.566Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-10T04:00:16.566Z] > authorizing via signed-in user
+[debug] [2021-03-10T04:00:16.567Z] [iam] checking project advancedweb-bismillah for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]
+[debug] [2021-03-10T04:00:16.569Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/advancedweb-bismillah:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update"]}
+[debug] [2021-03-10T04:00:17.258Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:18 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=551","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:17.261Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/advancedweb-bismillah/serviceAccounts/advancedweb-bismillah@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-03-10T04:00:17.909Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:19 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:17.913Z] > refreshing access token with scopes: []
+[debug] [2021-03-10T04:00:17.914Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-10T04:00:18.044Z] <<< HTTP RESPONSE 200 {"date":"Wed, 10 Mar 2021 04:00:19 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:18.070Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah [none]
+[debug] [2021-03-10T04:00:18.284Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah 200
+[debug] [2021-03-10T04:00:18.284Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah {"projectId":"advancedweb-bismillah","projectNumber":"844158624908","displayName":"advancedweb-bismillah","name":"projects/advancedweb-bismillah","resources":{"hostingSite":"advancedweb-bismillah","realtimeDatabaseInstance":"advancedweb-bismillah-default-rtdb","storageBucket":"advancedweb-bismillah.appspot.com","locationId":"europe-west2"},"state":"ACTIVE"}
+[debug] [2021-03-10T04:00:18.285Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah [none]
+[debug] [2021-03-10T04:00:18.510Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah 200
+[debug] [2021-03-10T04:00:18.510Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah {"projectId":"advancedweb-bismillah","projectNumber":"844158624908","displayName":"advancedweb-bismillah","name":"projects/advancedweb-bismillah","resources":{"hostingSite":"advancedweb-bismillah","realtimeDatabaseInstance":"advancedweb-bismillah-default-rtdb","storageBucket":"advancedweb-bismillah.appspot.com","locationId":"europe-west2"},"state":"ACTIVE"}
+[warn] !  functions: package.json indicates an outdated version of firebase-functions.
+Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[info] 
+[info] === Deploying to 'advancedweb-bismillah'...
+[info] 
+[info] i  deploying database, functions, hosting 
+[info] i  database: checking rules syntax... 
+[debug] [2021-03-10T04:00:21.997Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-10T04:00:21.997Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-10T04:00:22.114Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Wed, 10 Mar 2021 04:00:23 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:22.129Z] >>> HTTP REQUEST GET https://firebasedatabase.googleapis.com/v1beta/projects/advancedweb-bismillah/locations/-/instances/advancedweb-bismillah-default-rtdb  
+ 
+[debug] [2021-03-10T04:00:22.446Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:23 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:22.450Z] >>> HTTP REQUEST PUT https://advancedweb-bismillah-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json?dryRun=true  
+ {
+  "rules": {
+    ".read": "now < 1615248000000",
+    ".write": "now < 1615248000000"
+  }
+}
+[debug] [2021-03-10T04:00:22.615Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Wed, 10 Mar 2021 04:00:24 GMT","content-type":"application/json; charset=utf-8","content-length":"15","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[info] +  database: rules syntax for database advancedweb-bismillah-default-rtdb is valid 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2021-03-10T04:00:25.395Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/advancedweb-bismillah/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2021-03-10T04:00:25.395Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/advancedweb-bismillah/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2021-03-10T04:00:25.396Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/advancedweb-bismillah/services/cloudbuild.googleapis.com  
+ 
+[debug] [2021-03-10T04:00:26.280Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:27.164Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2021-03-10T04:00:27.203Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2021-03-10T04:00:27.205Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/advancedweb-bismillah/adminSdkConfig  
+ 
+[debug] [2021-03-10T04:00:27.502Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  functions: preparing functions directory for uploading... 
+[debug] [2021-03-10T04:00:27.505Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/advancedweb-bismillah/configs  
+ 
+[debug] [2021-03-10T04:00:27.862Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:27.965Z] > [functions] package.json contents: {
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "main": "src/index.ts",
+  "dependencies": {
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.8.0",
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.22.0",
+    "firebase-functions-test": "^0.2.0",
+    "typescript": "^3.8.0"
+  },
+  "private": true
+}
+[debug] [2021-03-10T04:00:27.967Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/advancedweb-bismillah/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-03-10T04:00:29.910Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:29.911Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/advancedweb-bismillah/locations/-/functions  
+ 
+[debug] [2021-03-10T04:00:30.519Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 10 Mar 2021 04:00:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[advancedweb-bismillah]: beginning deploy... 
+[info] i  hosting[advancedweb-bismillah]: found 3 files in public 
+[debug] [2021-03-10T04:00:30.547Z] [hosting] hash cache [cHVibGlj] not populated
+[debug] [2021-03-10T04:00:30.570Z] > refreshing access token with scopes: []
+[debug] [2021-03-10T04:00:30.571Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-10T04:00:30.584Z] [hosting] hash cache [cHVibGlj] stored for 3 files
+[debug] [2021-03-10T04:00:30.584Z] [hosting][hash queue][FINAL] {"max":14,"min":9,"avg":12.333333333333334,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":35}
+[debug] [2021-03-10T04:00:30.917Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 10 Mar 2021 04:00:32 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-10T04:00:30.948Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/sites/advancedweb-bismillah/versions/459993ab341b5365:populateFiles [none]
+[debug] [2021-03-10T04:00:30.948Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/advancedweb-bismillah/versions/459993ab341b5365:populateFiles {"files":{"/favicon.ico":"d5451f0f0f0bcbcd433bbdf4f6e7e5d89d8ecce2650649e969ccb5e5cd499ab2","/index.html":"5b8622c0359ff3e43e305283166f137cf05e5aabbb2b11f64d7a83de6f4339b9","/heart.png":"59500dc41e31ea534bba941b0802738fddde200a118a5ec5839948898d264372"}}
+[debug] [2021-03-10T04:00:31.957Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/sites/advancedweb-bismillah/versions/459993ab341b5365:populateFiles 200
+[debug] [2021-03-10T04:00:31.958Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/sites/advancedweb-bismillah/versions/459993ab341b5365:populateFiles {"uploadRequiredHashes":["d5451f0f0f0bcbcd433bbdf4f6e7e5d89d8ecce2650649e969ccb5e5cd499ab2","5b8622c0359ff3e43e305283166f137cf05e5aabbb2b11f64d7a83de6f4339b9","59500dc41e31ea534bba941b0802738fddde200a118a5ec5839948898d264372"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files"}
+[debug] [2021-03-10T04:00:31.960Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files/d5451f0f0f0bcbcd433bbdf4f6e7e5d89d8ecce2650649e969ccb5e5cd499ab2 [none]
+[debug] [2021-03-10T04:00:31.960Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files/d5451f0f0f0bcbcd433bbdf4f6e7e5d89d8ecce2650649e969ccb5e5cd499ab2 [stream]
+[debug] [2021-03-10T04:00:31.962Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files/5b8622c0359ff3e43e305283166f137cf05e5aabbb2b11f64d7a83de6f4339b9 [none]
+[debug] [2021-03-10T04:00:31.962Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files/5b8622c0359ff3e43e305283166f137cf05e5aabbb2b11f64d7a83de6f4339b9 [stream]
+[debug] [2021-03-10T04:00:31.963Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files/59500dc41e31ea534bba941b0802738fddde200a118a5ec5839948898d264372 [none]
+[debug] [2021-03-10T04:00:31.963Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/advancedweb-bismillah/versions/459993ab341b5365/files/59500dc41e31ea534bba941b0802738fddde200a118a5ec5839948898d264372 [stream]
+[debug] [2021-03-10T04:00:31.968Z] [hosting][populate queue][FINAL] {"max":1390,"min":1390,"avg":1390,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1398}
+[debug] [2021-03-10T04:00:31.968Z] [hosting] uploads queued: 3
